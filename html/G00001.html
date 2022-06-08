@@ -8,7 +8,7 @@
                 
 function appendData(data) {
 //Set Channel Number For HTML Page Gxxx = data[#-1];
-Gxxx = data[2-1];
+Gxxx = data[4-1];
 
 //Set Apple Touch icon for websites
 var link = document.createElement('link');link.rel = 'apple-touch-icon';document.head.appendChild(link);link.href = `../` + `${Gxxx.datag[4]}`;
@@ -20,8 +20,8 @@ document.title = `${Gxxx.datag[0]}`;
 EJS_player = '#game';
 EJS_core = `${Gxxx.datag[1]}`;
 EJS_lightgun = false;
-EJS_biosUrl = `../roms/` +`${Gxxx.datag[3]}`;
-EJS_gameUrl = `../roms/` +`${Gxxx.datag[2]}`;
+EJS_biosUrl = `${Gxxx.datag[3]}`;
+EJS_gameUrl = `${Gxxx.datag[2]}`;
 EJS_pathtodata = '../dataxx/';};
 </script>
 <script src='../dataxx/loader.js'></script></body></html>
