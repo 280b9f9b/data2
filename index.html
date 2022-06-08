@@ -58,7 +58,7 @@
 
 <script>
 //Load JSON Files (JavaScript)
-fetch('assets/app.json')
+fetch('app.json')
 .then(function (response) {return response.json();})
 .then(function (data) {appendData(data);})
 .catch(function (err) {console.log('error: ' + err);});
