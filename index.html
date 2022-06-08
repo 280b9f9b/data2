@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="apple-touch-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk2uEab4binHB37cMrmn6Q_mS5F3r2T22tfYqNJa0A3EMbd8EZ4J0EhSI8QQhSCcYFelE&usqp=CAU">
+<title>EmulatorJS</title>
+
+<style>
+.GameBody {
+  background-color: #1B2631;}
+
+.GameHeader {
+  padding: 10px;
+  text-align: center;
+  background: #1760af;
+  color: white;
+  font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+  font-size: 15px;
+  font-weight: bold;}
+
+.GameFooter {
+  padding: 10px;
+  text-align: center;
+  background: #d33f3f;
+  color: white;
+  font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+  font-size: 15px;
+  font-weight: bold;}
+
+.GameBox {
+  display: inline-block;
+  padding: 8px;
+  vertical-align: top;
+  position: relative;}
+
+.GameCover {
+  width: 100px;
+  height:130px;
+  position: relative;
+  border-radius: 5% !important;}
+
+.GameText {
+  text-align: center;
+  color: white;
+  font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+  font-size: 12px;
+  width: 100px;}
+</style>
+</head>
+<body class="GameBody">
+
+<a class="GameText" href="https://thegamesdb.net">TheGamesDB</a>
+<a class="GameText" href="https://gamehacking.org">GameHacking</a>
+<a class="GameText" href="https://edgeemu.net">EdgeEmulation</a>
+
+<div id="app"></div>
+
+<script>
+//Load JSON Files (JavaScript)
+fetch('assets/app.json')
+.then(function (response) {return response.json();})
+.then(function (data) {appendData(data);})
+.catch(function (err) {console.log('error: ' + err);});
+
+//Display JSON Data
+function EJsTemplate(EJs) {return `
+<div class="GameBox"><a href="${EJs.datag[5]}"><img class="GameCover" src="${EJs.datag[4]}"></a>
+<h2 class="GameText">${EJs.datag[0]}</h2></div>`;}
+
+//Display JSON Data
+function appendData(data) {
+var mainContainer = document.getElementById("app").innerHTML = `
+<h1 class="GameHeader">Emulatorjs (${data.length})</h1>
+${data.map(EJsTemplate).join("")}
+<p class="GameFooter">These ${data.length} Games were added recently. Check back soon for updates.</p>`;}
+</script>
+</body></html>
