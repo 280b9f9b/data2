@@ -14,7 +14,7 @@ fetch('../app.json').then(function (response) {return response.json();}).then(fu
                 
 function appendData(data) {
 //Set Channel Number For HTML Page Gxxx = data[#-1];
-Gxxx = data[2-1];
+Gxxx = data[1-1];
 
 //Set Apple Touch icon for websites
 var link = document.createElement('link');link.rel = 'apple-touch-icon';document.head.appendChild(link);link.href = `../` + `${Gxxx.datag[4]}`;
