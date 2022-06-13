@@ -47,6 +47,10 @@
   font-size: 12px;
   width: 100px;}
 </style>
+
+<link rel="stylesheet" href="splide.min.css">
+<script src="splide.min.js"></script>
+
 </head>
 <body class="GameBody">
 
@@ -72,5 +76,17 @@ var mainContainer = document.getElementById("app").innerHTML = `
 <h1 class="GameHeader">Emulatorjs (${data.length})</h1>
 ${data.map(EJsTemplate).join("")}
 <p class="GameFooter">These ${data.length} Games were added recently. Check back soon for updates.</p>`;}
+</script>
+
+<script>
+
+var splide = new Splide( '.splide', {
+  type   : 'loop',
+  perPage: 3,
+  focus  : 'center',
+} );
+
+splide.mount();
+
 </script>
 </body></html>
